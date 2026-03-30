@@ -589,16 +589,16 @@ footer{
 
 /* File upload box */
 .file-box{
+  display:block;
   width:100%;margin-top:10px;margin-bottom:2px;
   border:1px dashed rgba(200,150,90,.35);
   background:rgba(255,255,255,.025);
   border-radius:2px;cursor:pointer;
   transition:background .25s,border-color .25s;
-  position:relative;overflow:hidden;
 }
-.file-box:hover{background:rgba(200,150,90,.06);border-color:rgba(200,150,90,.55)}
-.file-box input[type="file"]{
-  position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;
+.file-box:hover,.file-box:focus-within{
+  background:rgba(200,150,90,.06);
+  border-color:rgba(200,150,90,.55);
 }
 .file-box-inner{
   padding:20px 16px;text-align:center;pointer-events:none;
@@ -1093,14 +1093,14 @@ p                  { font-size: 18px }
           <label class="flabel">อีเมลสำหรับรับไฟล์ — Email</label>
           <input id="cf-email" class="finput" type="email" placeholder="your@email.com" style="margin-bottom:10px">
           <label class="flabel">แนบสลิป — Attach Payment Slip</label>
-          <div class="file-box">
-            <input type="file" id="cf-slip" accept="image/*,application/pdf" onchange="handleFile(this)">
+          <label class="file-box" for="cf-slip">
+            <input type="file" id="cf-slip" accept="image/*,application/pdf" onchange="handleFile(this)" style="display:none">
             <div class="file-box-inner" id="file-inner">
               <span class="file-icon">↑</span>
-              <span class="file-text">คลิกหรือลากไฟล์มาวางที่นี่</span>
+              <span class="file-text">แตะหรือคลิกเพื่อแนบสลิป</span>
               <span class="file-sub">PNG · JPG · PDF · ไม่เกิน 10 MB</span>
             </div>
-          </div>
+          </label>
           <button class="fbtn" id="send-btn" onclick="sendSlip()">ส่งข้อมูลและสลิป →</button>
           <div class="fsuccess" id="cf-success">
             ✓ ส่งข้อมูลแล้ว — เราจะส่ง 40 Skills ให้ทาง Email ภายใน 30 นาที (9:00–22:00 น.)
