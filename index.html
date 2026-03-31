@@ -587,6 +587,154 @@ footer{
 .cta .arr{transition:transform .25s}
 .cta:hover .arr{transform:translateX(3px)}
 
+/* ══════════════════════════
+   OUTPUT COMPARISON SECTION
+══════════════════════════ */
+
+/* Tabs */
+.cmp-tabs{
+  display:flex;gap:2px;margin-bottom:2px;
+}
+.cmp-tab{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  padding:10px 20px;border:1px solid var(--ld);
+  background:rgba(255,255,255,.02);color:var(--ash);
+  cursor:pointer;border-radius:0;transition:all .25s;
+}
+.cmp-tab.active{
+  background:rgba(200,150,90,.1);
+  border-color:rgba(200,150,90,.35);
+  color:var(--amber);
+}
+.cmp-tab:hover:not(.active){background:rgba(255,255,255,.04);color:var(--stone)}
+
+/* Panels */
+.cmp-panel{display:block}
+.cmp-panel.hidden{display:none}
+
+/* Two-column grid */
+.cmp-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2px;
+}
+@media(max-width:760px){.cmp-grid{grid-template-columns:1fr}}
+
+/* Columns */
+.cmp-col{border:1px solid var(--ld)}
+.cmp-col.with{border-color:rgba(200,150,90,.25)}
+
+/* Column head */
+.cmp-col-head{
+  padding:16px 20px;
+  border-bottom:1px solid var(--ld);
+  display:flex;align-items:center;gap:12px;
+}
+.cmp-col.with .cmp-col-head{border-bottom-color:rgba(200,150,90,.2)}
+.cmp-badge{
+  font-family:'DM Mono',monospace;font-size:8px;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:4px 10px;border-radius:20px;
+}
+.without-badge{
+  background:rgba(255,255,255,.05);
+  color:rgba(240,235,226,.4);
+  border:1px solid rgba(255,255,255,.08);
+}
+.with-badge{
+  background:rgba(200,150,90,.12);
+  color:var(--amber);
+  border:1px solid rgba(200,150,90,.3);
+}
+.cmp-col-label{
+  font-size:10px;letter-spacing:1px;
+  color:var(--ash);
+}
+
+/* Body */
+.cmp-body{padding:0}
+
+/* Slides */
+.cmp-slide{
+  padding:20px 24px;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  background:rgba(255,255,255,.015);
+}
+.cmp-slide:last-of-type{border-bottom:none}
+.with-slide{
+  background:rgba(200,150,90,.025);
+  border-bottom-color:rgba(200,150,90,.1)!important;
+}
+.slide-num{
+  font-family:'DM Mono',monospace;
+  font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--ash);margin-bottom:6px;
+}
+.slide-title{
+  font-family:'Playfair Display',serif;
+  font-size:16px;font-weight:400;
+  color:rgba(240,235,226,.5);margin-bottom:10px;
+}
+.slide-content p{
+  font-size:13px;color:rgba(240,235,226,.45);
+  line-height:1.75;font-weight:300;
+}
+.slide-content ul{
+  list-style:none;margin-top:8px;
+}
+.slide-content li{
+  font-size:12px;color:rgba(240,235,226,.38);
+  line-height:1.7;padding:2px 0;
+  padding-left:12px;position:relative;font-weight:300;
+}
+.slide-content li::before{
+  content:'—';position:absolute;left:0;
+  color:rgba(240,235,226,.2);
+}
+
+/* Verdict */
+.cmp-verdict{
+  padding:16px 20px;
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:12px;line-height:1.65;font-weight:300;
+}
+.without-verdict{
+  background:rgba(196,96,58,.05);
+  border-top:1px solid rgba(196,96,58,.15);
+  color:rgba(200,100,80,.7);
+}
+.with-verdict{
+  background:rgba(42,123,111,.05);
+  border-top:1px solid rgba(42,123,111,.2);
+  color:var(--jade-l);
+}
+.verdict-icon{
+  font-size:14px;flex-shrink:0;margin-top:1px;
+}
+
+/* Skills activated strip */
+.skills-activated{
+  margin-top:28px;padding:20px 24px;
+  background:rgba(200,150,90,.05);
+  border:1px solid rgba(200,150,90,.18);
+  display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;
+}
+.sa-label{
+  font-family:'DM Mono',monospace;
+  font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--amber);white-space:nowrap;padding-top:3px;opacity:.7;
+}
+.sa-tags{display:flex;flex-wrap:wrap;gap:6px}
+.sa-tag{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 10px;
+  background:rgba(200,150,90,.08);
+  border:1px solid rgba(200,150,90,.2);
+  color:var(--amber);border-radius:1px;opacity:.85;
+}
+
 /* File upload box */
 .file-box{
   display:block;
@@ -928,10 +1076,328 @@ p                  { font-size: 18px }
 </div>
 
 
+<!-- ═══ SIDE-BY-SIDE OUTPUT COMPARISON ═══ -->
+<section id="compare" class="sec bg-deep reveal">
+  <div class="w">
+    <div class="chip chip-a">05 · See The Difference · Real Output</div>
+    <div class="g2" style="margin-bottom:48px;align-items:end">
+      <div>
+        <h2>Same prompt.<br>Same Claude.<br><em style="font-family:'Playfair Display',serif;font-style:italic">Completely different output.</em></h2>
+        <div class="rule rule-a" style="margin:20px 0"></div>
+        <p class="muted">Prompt เดียวกัน — "สร้าง Campaign Concept สำหรับ Thai Luxury Skincare Brand ที่จะ Launch ใน Q1" ความต่างคือ Skills ที่ติดตั้งอยู่ใน Claude</p>
+      </div>
+      <div style="background:rgba(200,150,90,.06);border:1px solid rgba(200,150,90,.15);padding:24px 28px">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:10px">The Prompt</div>
+        <p style="font-size:15px;font-family:'Playfair Display',serif;font-style:italic;color:var(--stone);line-height:1.7;font-weight:300">"Create a campaign concept and creative pitch deck outline for a new Thai luxury skincare brand launching Q1. Position against La Mer and Tatcha."</p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="cmp-tabs" id="cmp-tabs">
+      <button class="cmp-tab active" onclick="switchTab('deck')">Campaign Concept</button>
+      <button class="cmp-tab" onclick="switchTab('strategy')">Brand Positioning</button>
+      <button class="cmp-tab" onclick="switchTab('voice')">Brand Voice</button>
+    </div>
+
+    <!-- PANEL: Campaign Concept -->
+    <div class="cmp-panel" id="panel-deck">
+      <div class="cmp-grid">
+
+        <!-- WITHOUT -->
+        <div class="cmp-col without">
+          <div class="cmp-col-head">
+            <div class="cmp-badge without-badge">Claude ปกติ · ไม่มี Skills</div>
+            <div class="cmp-col-label">Generic AI Output</div>
+          </div>
+          <div class="cmp-body">
+            <div class="cmp-slide">
+              <div class="slide-num">Slide 1 — Campaign Overview</div>
+              <div class="slide-title">"Radiant Beauty from Thailand"</div>
+              <div class="slide-content">
+                <p>A campaign celebrating Thai beauty traditions and natural ingredients.</p>
+                <ul>
+                  <li>Hero product: Signature Serum with Thai herbs</li>
+                  <li>Target: Women 25–45, high income</li>
+                  <li>Channels: Instagram, influencers, department stores</li>
+                  <li>Message: "Natural. Luxury. Thai."</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cmp-slide">
+              <div class="slide-num">Slide 2 — Key Messages</div>
+              <div class="slide-title">Why Choose Us</div>
+              <div class="slide-content">
+                <ul>
+                  <li>Premium Thai ingredients</li>
+                  <li>Luxury packaging and experience</li>
+                  <li>Effective formulas backed by research</li>
+                  <li>Sustainable and eco-friendly</li>
+                  <li>Competitive pricing vs. international brands</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cmp-slide">
+              <div class="slide-num">Slide 3 — Marketing Plan</div>
+              <div class="slide-title">Go-to-Market</div>
+              <div class="slide-content">
+                <ul>
+                  <li>Launch event at luxury hotel</li>
+                  <li>Partner with beauty influencers (10K–1M followers)</li>
+                  <li>Social media ads on Facebook and Instagram</li>
+                  <li>Press release to beauty media</li>
+                  <li>In-store display at Sephora and Central</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cmp-verdict without-verdict">
+              <span class="verdict-icon">✗</span>
+              <span>Generic. Could be any brand, any country. Nothing here La Mer couldn't say — or your local pharmacy.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WITH -->
+        <div class="cmp-col with">
+          <div class="cmp-col-head">
+            <div class="cmp-badge with-badge">Claude + Luminary Skills</div>
+            <div class="cmp-col-label">Agency-Grade Output</div>
+          </div>
+          <div class="cmp-body">
+            <div class="cmp-slide with-slide">
+              <div class="slide-num" style="color:var(--amber)">Slide 1 — Campaign Platform</div>
+              <div class="slide-title" style="color:var(--stone)">"The Patience of Rain"</div>
+              <div class="slide-content">
+                <p style="color:rgba(240,235,226,.7)">A campaign built on a single cultural truth: in Thai, the word for "skin" and the word for "patience" share the same root. Great skin isn't made — it's waited for. This positions the brand not against La Mer's science narrative, but in a category of its own: <em>ritual over result</em>.</p>
+                <div style="margin-top:14px;padding:10px 14px;border-left:2px solid var(--amber);background:rgba(200,150,90,.06)">
+                  <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:4px">Campaign Line</div>
+                  <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--stone)">"Some things only happen slowly."</div>
+                </div>
+              </div>
+            </div>
+            <div class="cmp-slide with-slide">
+              <div class="slide-num" style="color:var(--amber)">Slide 2 — Competitive Positioning</div>
+              <div class="slide-title" style="color:var(--stone)">Where We Play</div>
+              <div class="slide-content">
+                <p style="color:rgba(240,235,226,.7)">La Mer owns <em>the sea</em>. Tatcha owns <em>the geisha ritual</em>. The white space is <em>the living landscape</em> — rain, soil, ancient orchards. We are the first luxury skin brand built not on an ingredient, but on a <em>climate</em>. Thailand's monsoon season as the central metaphor for transformation.</p>
+                <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                  <div style="padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)">
+                    <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ash);margin-bottom:4px">La Mer</div>
+                    <div style="font-size:11px;color:rgba(240,235,226,.5)">Ocean science, healing mythology</div>
+                  </div>
+                  <div style="padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)">
+                    <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ash);margin-bottom:4px">Tatcha</div>
+                    <div style="font-size:11px;color:rgba(240,235,226,.5)">Japanese ritual, geisha purity</div>
+                  </div>
+                  <div style="padding:10px 12px;background:rgba(200,150,90,.08);border:1px solid rgba(200,150,90,.25);grid-column:span 2">
+                    <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:4px">Our Brand — White Space</div>
+                    <div style="font-size:11px;color:rgba(240,235,226,.7)">Living landscape, monsoon patience, Thai time</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cmp-slide with-slide">
+              <div class="slide-num" style="color:var(--amber)">Slide 3 — HNWI Launch Strategy</div>
+              <div class="slide-title" style="color:var(--stone)">Distribution as Brand Signal</div>
+              <div class="slide-content">
+                <p style="color:rgba(240,235,226,.7)">Avoid Sephora at launch. The HNWI Thai consumer treats <em>availability</em> as a quality signal. Begin with one private boutique (Gaysorn Village), a waitlist, and a single international stockist (Liberty London or Isetan Tokyo). Press before product — secure <em>Vogue Thailand</em> and <em>Wallpaper*</em> editorial coverage before any retail presence.</p>
+                <div style="margin-top:12px;padding:10px 14px;background:rgba(200,150,90,.06);border:1px solid rgba(200,150,90,.15)">
+                  <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:4px">Key Principle</div>
+                  <div style="font-size:11px;color:rgba(240,235,226,.6);line-height:1.65">Scarcity is not a tactic — it is the brand's first proof of quality. The product must feel impossible to find before it feels worth finding.</div>
+                </div>
+              </div>
+            </div>
+            <div class="cmp-verdict with-verdict">
+              <span class="verdict-icon">✓</span>
+              <span>A distinct creative platform, competitive white-space analysis, and HNWI-specific distribution logic. Ready to present to a luxury client.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PANEL: Brand Positioning -->
+    <div class="cmp-panel hidden" id="panel-strategy">
+      <div class="cmp-grid">
+        <div class="cmp-col without">
+          <div class="cmp-col-head">
+            <div class="cmp-badge without-badge">Claude ปกติ · ไม่มี Skills</div>
+            <div class="cmp-col-label">Generic AI Output</div>
+          </div>
+          <div class="cmp-body">
+            <div class="cmp-slide">
+              <div class="slide-num">Brand Positioning Statement</div>
+              <div class="slide-title">Our Brand Promise</div>
+              <div class="slide-content">
+                <p>For affluent Thai women who care about their skin, our brand offers premium skincare products made with high-quality Thai ingredients. Unlike international brands, we offer an authentic Thai luxury experience at a competitive price.</p>
+                <ul style="margin-top:12px">
+                  <li>Mission: Bring Thai beauty to the world</li>
+                  <li>Vision: Be the #1 Thai luxury skincare brand</li>
+                  <li>Values: Quality, Heritage, Sustainability, Innovation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cmp-slide">
+              <div class="slide-num">Target Audience</div>
+              <div class="slide-title">Customer Profile</div>
+              <div class="slide-content">
+                <ul>
+                  <li>Age: 28–50</li>
+                  <li>Income: High</li>
+                  <li>Interests: Beauty, wellness, travel</li>
+                  <li>Buys: La Mer, SK-II, Sulwhasoo</li>
+                  <li>Values local brands and Thai culture</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cmp-verdict without-verdict">
+              <span class="verdict-icon">✗</span>
+              <span>A positioning statement any consultant could write in 10 minutes. No tension, no insight, no reason to believe.</span>
+            </div>
+          </div>
+        </div>
+        <div class="cmp-col with">
+          <div class="cmp-col-head">
+            <div class="cmp-badge with-badge">Claude + Luminary Skills</div>
+            <div class="cmp-col-label">Agency-Grade Output</div>
+          </div>
+          <div class="cmp-body">
+            <div class="cmp-slide with-slide">
+              <div class="slide-num" style="color:var(--amber)">Brand Architecture</div>
+              <div class="slide-title" style="color:var(--stone)">The Positioning Tension</div>
+              <div class="slide-content">
+                <p style="color:rgba(240,235,226,.7)">Every great luxury brand is built on a productive tension — two forces pulling in opposite directions that the brand resolves. Ours: <em>the ancient and the inevitable</em>. Thai botanical tradition that has existed for 700 years, expressed through a product so precisely formulated it feels like the future.</p>
+                <div style="margin-top:14px;display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center">
+                  <div style="padding:12px;background:rgba(255,255,255,.03);border:1px solid var(--ld);text-align:center">
+                    <div style="font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--stone)">Ancient</div>
+                    <div style="font-size:10px;color:var(--ash);margin-top:4px">700-year botanical lineage</div>
+                  </div>
+                  <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--amber);text-align:center">×</div>
+                  <div style="padding:12px;background:rgba(255,255,255,.03);border:1px solid var(--ld);text-align:center">
+                    <div style="font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--stone)">Inevitable</div>
+                    <div style="font-size:10px;color:var(--ash);margin-top:4px">Precision modern formulation</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cmp-slide with-slide">
+              <div class="slide-num" style="color:var(--amber)">HNWI Consumer Psychology</div>
+              <div class="slide-title" style="color:var(--stone)">What They Actually Buy</div>
+              <div class="slide-content">
+                <p style="color:rgba(240,235,226,.7)">The Thai HNWI consumer purchasing luxury skincare is not buying <em>ingredients</em>. They are buying <em>time reclaimed</em> — proof that they have chosen wisely rather than merely expensively. They will not switch from La Mer for a better formula. They will switch for a <em>better story about themselves</em>.</p>
+                <div style="margin-top:12px;padding:12px 14px;border-left:2px solid var(--amber);background:rgba(200,150,90,.05)">
+                  <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:4px">The Real Purchase Motivation</div>
+                  <div style="font-size:11px;color:rgba(240,235,226,.6);line-height:1.65">"I discovered something before anyone else knew about it." Exclusivity is not about price — it's about being the kind of person who finds things first.</div>
+                </div>
+              </div>
+            </div>
+            <div class="cmp-verdict with-verdict">
+              <span class="verdict-icon">✓</span>
+              <span>A brand tension that creates real differentiation, and a consumer psychology insight that drives actual strategy decisions.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: Brand Voice -->
+    <div class="cmp-panel hidden" id="panel-voice">
+      <div class="cmp-grid">
+        <div class="cmp-col without">
+          <div class="cmp-col-head">
+            <div class="cmp-badge without-badge">Claude ปกติ · ไม่มี Skills</div>
+            <div class="cmp-col-label">Generic AI Output</div>
+          </div>
+          <div class="cmp-body">
+            <div class="cmp-slide">
+              <div class="slide-num">Brand Voice Guidelines</div>
+              <div class="slide-title">Our Tone of Voice</div>
+              <div class="slide-content">
+                <p>Our brand voice is elegant, sophisticated, and warm. We speak to our customers as intelligent adults who appreciate quality.</p>
+                <ul style="margin-top:12px">
+                  <li><strong>Elegant</strong> — refined language, no slang</li>
+                  <li><strong>Knowledgeable</strong> — expert in skincare science</li>
+                  <li><strong>Warm</strong> — friendly and approachable</li>
+                  <li><strong>Aspirational</strong> — inspire confidence</li>
+                </ul>
+              </div>
+            </div>
+            <div class="cmp-slide">
+              <div class="slide-num">Copy Example — Product Description</div>
+              <div class="slide-title">Signature Serum</div>
+              <div class="slide-content">
+                <p style="font-style:italic">"Our luxurious serum is crafted with the finest Thai botanicals to deliver deep hydration and visible radiance. Experience the power of nature combined with advanced skincare technology for skin that glows from within."</p>
+              </div>
+            </div>
+            <div class="cmp-verdict without-verdict">
+              <span class="verdict-icon">✗</span>
+              <span>"Elegant, warm, aspirational" — every luxury brand says this. And the copy reads like a translation. Nothing here is ownable.</span>
+            </div>
+          </div>
+        </div>
+        <div class="cmp-col with">
+          <div class="cmp-col-head">
+            <div class="cmp-badge with-badge">Claude + Luminary Skills</div>
+            <div class="cmp-col-label">Agency-Grade Output</div>
+          </div>
+          <div class="cmp-body">
+            <div class="cmp-slide with-slide">
+              <div class="slide-num" style="color:var(--amber)">Verbal Identity System</div>
+              <div class="slide-title" style="color:var(--stone)">The Voice Principle</div>
+              <div class="slide-content">
+                <p style="color:rgba(240,235,226,.7)">The brand never announces its own quality. It describes moments, materials, and time with precision — and lets the reader arrive at the conclusion alone. This is the luxury voice principle: <em>authority through restraint</em>. The moment you say "luxurious," you have broken the spell.</p>
+                <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:2px">
+                  <div style="padding:12px 14px;background:rgba(196,96,58,.06);border:1px solid rgba(196,96,58,.15)">
+                    <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(196,96,58,.7);margin-bottom:6px">Never say</div>
+                    <div style="font-size:11px;color:rgba(240,235,226,.4);line-height:1.6;text-decoration:line-through">"Luxurious" · "Premium" · "Exclusive" · "Radiant" · "Transform" · "Glow from within"</div>
+                  </div>
+                  <div style="padding:12px 14px;background:rgba(42,123,111,.06);border:1px solid rgba(42,123,111,.2)">
+                    <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--jade-l);margin-bottom:6px">Instead</div>
+                    <div style="font-size:11px;color:rgba(240,235,226,.6);line-height:1.6">Describe the material, the moment, the gesture. Let the reader feel it without being told what to feel.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cmp-slide with-slide">
+              <div class="slide-num" style="color:var(--amber)">Copy Example — Same Product</div>
+              <div class="slide-title" style="color:var(--stone)">Signature Serum</div>
+              <div class="slide-content">
+                <div style="padding:16px 18px;background:rgba(255,255,255,.03);border-left:2px solid var(--amber)">
+                  <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--stone);line-height:1.75">"Collected at first light, when the orchid closes. Applied in the evening, when the skin is finally still. Between these two moments — twelve hours of slow extraction, and a thousand years of knowing what to look for."</p>
+                </div>
+                <div style="margin-top:10px;font-size:10px;color:var(--ash);line-height:1.6">No adjectives. No claims. Just time, material, and a quiet implication that this required someone who knew exactly what they were doing.</div>
+              </div>
+            </div>
+            <div class="cmp-verdict with-verdict">
+              <span class="verdict-icon">✓</span>
+              <span>A voice principle with clear rules, a forbidden word list, and copy that could run in Vogue or on a product card without changing a word.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills activated label -->
+    <div class="skills-activated reveal">
+      <div class="sa-label">Skills activated in this output</div>
+      <div class="sa-tags">
+        <span class="sa-tag">SKILL-01 · Brand Architecture</span>
+        <span class="sa-tag">SKILL-02 · HNWI Psychology</span>
+        <span class="sa-tag">SKILL-10 · Verbal Identity</span>
+        <span class="sa-tag">SKILL-12 · Campaign Strategy</span>
+        <span class="sa-tag">SKILL-18 · Luxury Pricing</span>
+        <span class="sa-tag">SKILL-24 · Consumer Research</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- ═══ 40 SKILLS ═══ -->
 <section id="skills" class="sec reveal">
   <div class="w">
-    <div class="chip chip-a">05 · The 40 Skills · 8 Disciplines</div>
+    <div class="chip chip-a">06 · The 40 Skills · 8 Disciplines</div>
     <div class="g2" style="margin-bottom:40px;align-items:end">
       <div>
         <h2>Your 40-specialist team.<br><em style="font-family:'Playfair Display',serif;font-style:italic">฿4,900.</em></h2>
@@ -1187,6 +1653,16 @@ p                  { font-size: 18px }
 
 
 <script>
+/* ── TAB SWITCHER ── */
+function switchTab(key){
+  document.querySelectorAll('.cmp-panel').forEach(p=>p.classList.add('hidden'));
+  document.querySelectorAll('.cmp-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+key).classList.remove('hidden');
+  const tabs=document.querySelectorAll('.cmp-tab');
+  const map={deck:0,strategy:1,voice:2};
+  tabs[map[key]].classList.add('active');
+}
+
 /* ── FORM — native multipart POST (file attachment works) ── */
 document.addEventListener('DOMContentLoaded', function(){
 
